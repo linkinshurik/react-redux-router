@@ -13,7 +13,7 @@ export default class Navigation extends Component {
 
         return <div>
             <ul>
-                <li><Link to="/home">home</Link></li>
+                <li><Link to="/">home</Link></li>
                 <li><Link to="/public">public</Link></li>
                 <li><Link to="/protected">protected</Link></li>    
             </ul>

@@ -14,6 +14,7 @@ import PublicComponent from './Public';
 import ProtectedComponent from './Protected';
 import Login from './Login';
 import Header from './Header';
+import Home from './Home';
 import PrivateRoute from './PrivateRoute';
 
 export class Main extends Component {
@@ -26,6 +27,7 @@ export class Main extends Component {
                 <div>
                     <Header auth = { auth } logout = { () => authenticate(false) } />
                     <Navigation />
+                    <Route exact path="/" component={Home} />
                     <Route path="/public" component={PublicComponent} />
                     <Route path="/login" component={Login} />
                     <PrivateRoute path="/protected" component={ProtectedComponent} auth={auth} />

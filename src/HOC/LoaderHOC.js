@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './loaderHOC.css';
-import { debug } from 'util';
 
 const LoaderHOC = (propName) => ( WrappedComponent ) => {
 

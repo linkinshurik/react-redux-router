@@ -16,7 +16,8 @@ export default handleActions(
         [AUTH_FULFILLED]: (state, action) => {
             return {
                 ...state,
-                auth: action.payload
+                auth: true,
+                profile: action.payload.data
             }
         }
     }, state

@@ -20,12 +20,12 @@ import PrivateRoute from './PrivateRoute';
 export class Main extends Component {
     
     render() {
-        const { auth, authenticate } = this.props;
+        const { auth, authenticate, profile } = this.props;
 
         return <div>
             <Router>
                 <div>
-                    <Header auth = { auth } logout = { () => authenticate(false) } />
+                    <Header auth = { auth } logout = { () => authenticate(false) } profile = {profile} />
                     <Navigation />
                     <Route exact path="/" component={Home} />
                     <Route path="/public" component={PublicComponent} />
@@ -39,7 +39,8 @@ export class Main extends Component {
 
 export default connect( store => ({
     data: store.data,
-    auth: store.auth
+    auth: store.auth,
+    profile: store.profile,
 }), dispatch => ({
     action: bindActionCreators(SimpleAction, dispatch),
     authenticate: bindActionCreators(Authenticate, dispatch)

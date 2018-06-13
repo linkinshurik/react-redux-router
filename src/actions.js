@@ -1,10 +1,12 @@
 import { createAction } from 'redux-actions';
+import axios from 'axios';
     
 import {
     CONSTANT,
     AUTH
-} from './actionTypes';;
+} from './actionTypes';
 
+const URL = 'http://127.0.0.1:8080/'
 
 export const SimpleAction = createAction(CONSTANT, async () => {
     try {
@@ -18,12 +20,9 @@ export const SimpleAction = createAction(CONSTANT, async () => {
     }
 });
 
-export const Authenticate = createAction(AUTH, async (val) => {
+export const Authenticate = createAction(AUTH, async (login, pass) => {
     try {
-        const result = await new Promise(res => setTimeout(() => {
-            res(val)
-        }, 1000))
-        return Promise.resolve(result)
+        return axios.get( URL + 'login/?login=' + login + '&passwd=' + pass )
     }
     catch(err) {
         return Promise.reject(err);

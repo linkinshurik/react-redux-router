@@ -3,7 +3,7 @@ import { Button } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
 
 const Header = withRouter((props) => {
-    const { auth, logout, history } = props;
+    const { auth, logout, history, profile } = props;
 
     const onLogoutHandler = () => {
         logout();
@@ -15,7 +15,7 @@ const Header = withRouter((props) => {
     )
 
     return <div>
-        Wellcome!
+        Wellcome, {profile.username}!
         <Button variant="contained" color="primary" onClick={ onLogoutHandler }>
             Login out
         </Button>  
